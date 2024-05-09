@@ -1,4 +1,3 @@
-// Ejemplo de cómo cargar datos de un archivo JSON (debes reemplazar 'datos.json' con la ruta correcta)
 fetch('Respuestas_H2_T3_Lenguaje_CarlosdeAlda.json')
     .then(response => response.json())
     .then(data => {
@@ -39,5 +38,32 @@ function mostrarResultados(data) {
 
         // Agregar la tarjeta al contenedor de resultados
         surveyResultsDiv.appendChild(resultEntry);
+
+        // Obtener el select de género
+        const genderSelect = document.getElementById('gender-select');
+
+// Escuchar el evento change en el select de género
+        genderSelect.addEventListener('change', () => {
+            const selectedGender = genderSelect.value;
+            filtrarPorGenero(selectedGender);
+        });
+
+        function filtrarPorGenero(gender) {
+            const surveyResultsDiv = document.getElementById('survey-results');
+            const resultEntries = surveyResultsDiv.querySelectorAll('.card');
+
+            // Mostrar u ocultar las tarjetas según el género seleccionado
+            resultEntries.forEach(entry => {
+                const genderText = entry.querySelector('.card-text:nth-child(4)').textContent.split(": ")[1];
+                if (gender === 'todos' || genderText === gender) {
+                    entry.style.display = 'block';
+                } else {
+                    entry.style.display = 'none';
+                }
+            });
+        }
+
+
+
     });
 }
