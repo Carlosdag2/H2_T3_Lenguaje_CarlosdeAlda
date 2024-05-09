@@ -21,6 +21,9 @@ function mostrarResultados(data) {
         resultEntry.innerHTML = `
             <div class="card-body">
                 <h5 class="card-title">Encuesta realizada el: ${entry['Marca temporal']}</h5>
+                <p class="card-text">Nombre: ${entry['Nombre']}</p>
+                <p class="card-text">Edad: ${entry['Edad']}</p>
+                <p class="card-text">Sexo: ${entry['Sexo']}</p>
                 <p class="card-text">Género Musical Favorito: ${entry['Género Musical Favorito:']}</p>
                 <p class="card-text">¿Con qué frecuencia escuchas música?: ${entry['¿Con qué frecuencia escuchas música?:']}</p>
                 <p class="card-text">¿Dónde prefieres escuchar música?: ${entry['¿Dónde prefieres escuchar música?:']}</p>
